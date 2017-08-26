@@ -1,0 +1,49 @@
+# Build settings
+permalink: /blog/:year/:title/
+markdown: kramdown
+highlighter: pygments
+gems: [jekyll-paginate]
+
+paginate: 3
+paginate_path: "/blog/page/:num/"
+comments: true
+
+source: source
+destination: _site
+sass:
+  sass_dir: _sass
+  style: compressed # expanded
+
+# SEO settings
+title: Nilesh Prajapati
+description: "It is all about software architecture"
+keywords: "Micro Services, SOA, Cloud, Azure, SaaS, Big Data, Open Source"
+url: http://nileshprajapati.net
+baseurl: ""
+
+google_analytics: UA-52446115-1
+repo: http://github.com/prajapatin/prajapatin.github.io.git
+disqus_shortname: "nileshprajapati"
+disqus_site_shortname: "nileshprajapati"
+
+# Author settings
+author:
+  name: Nilesh Prajapati
+  job: Software Architect
+  bio: "Software Architect with experience on SOA, Micro Services, Message Driven architecture and IOT, Cloud(Azure, AWS), Big Data enthusiast"
+  thumb: /images/author.jpg
+  email: nilesh.prajapati@outlook.com
+  url: http://nileshprajapati.net/
+  github: https://github.com/prajapatin
+  twitter: https://twitter.com/nilesh_be_it
+  facebook: https://facebook.com/nilesh.be.it
+  linkedin: https://linkedin.com/in/nileshprajapati
+
+# navbar pages
+navbar:
+  - slug: about
+    title: About
+  - slug: blog
+    title: Blog
+
+exclude: ["config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
