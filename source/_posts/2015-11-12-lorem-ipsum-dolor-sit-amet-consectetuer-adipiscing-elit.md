@@ -5,7 +5,7 @@ description: "Cum sociis natoque penatibus et magnis dis parturient montes, nasc
 date: 2015-11-12 16:41:50
 comments: true
 keywords: "welcome, Lorem, ipsum, dolor"
-category: welcome
+categories: [Welcome]
 tags:
 - welcome
 ---

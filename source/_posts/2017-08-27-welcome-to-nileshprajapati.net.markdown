@@ -4,7 +4,8 @@ title:  "Welcome to nileshprajapati.net!"
 date:   2017-08-27 19:13:00
 comments: true
 image: /images/nilesh.png
-categories: uncategorized
+categories: [Welcome]
+tags: [welcome]
 ---
 It is been long time I have written blogs and thought of restarting it after many years of pause. I am writing this first introductory blog after a long pause, I would be sharing my technical knowledge I acquired during my past working experience on this website.
 

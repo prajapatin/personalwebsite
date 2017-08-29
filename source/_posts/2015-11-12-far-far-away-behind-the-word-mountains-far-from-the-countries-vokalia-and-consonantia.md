@@ -5,7 +5,7 @@ description: "A small river named Duden flows by their place and supplies it wit
 date: 2015-11-12 16:38:20
 comments: true
 keywords: "welcome, Far, far, away"
-category: welcome
+categories: [Welcome]
 tags:
 - welcome
 ---

@@ -5,9 +5,9 @@ description: "Microservices architecture is quite different from Monolithic arch
 date:   2017-08-28 22:15:00
 comments: true
 image: /images/microservices.png
-categories: Architecture
+categories: [Architecture]
 keywords: "microservices, cloud, azure, service fabric"
-tags: "Microservices, Azure Service Fabric"
+tags: [Microservices, Azure Service Fabric]
 ---
 I have come across with many people, who have different understanding about microservices based software architecture, it is very important to understand how it is different from monolithic architecture that too not only in terms of technical implementation.
 
