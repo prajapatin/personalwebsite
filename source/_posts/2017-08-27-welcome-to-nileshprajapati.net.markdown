@@ -12,12 +12,12 @@ I would appreciate if you can provide your comments on whatever subjects I would
 
 I would be using following source code format in my subsequent blogs:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight C# %}
+function PrintHi(String name){
+  Console.WriteLine("Hi, " + name);
+}
+PrintHi("Nilesh")
+#=> prints 'Hi, Nilesh' to console.
 {% endhighlight %}
 
 You can connect with me through [my linkedin profile][inprofile].
