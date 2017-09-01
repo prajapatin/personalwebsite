@@ -73,19 +73,24 @@ private static void ConfigureSignalR(IAppBuilder app)
         app.MapSignalR();
     }
 
-    var configuration = new HubConfiguration { EnableDetailedErrors = true, EnableJavaScriptProxies = false };
+    var configuration = new HubConfiguration
+     { EnableDetailedErrors = true, EnableJavaScriptProxies = false };
     app.MapSignalR(configuration);
 
     var connectionString = SignalRHostConfiguration.ServiceBusConnectionString;
     var topicName = SignalRHostConfiguration.ServiceBusNotificationTopic;
     var topicSubscriptionName = SignalRHostConfiguration.TopicSubscriptionName;
 
-    var client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, topicSubscriptionName);
+    var client = 
+    SubscriptionClient.CreateFromConnectionString(connectionString, 
+    topicName, topicSubscriptionName);
 
     client.OnMessage(message =>
     {
-        var notificationHubContext = GlobalHost.ConnectionManager.GetHubContext<AbilityNotificationHub>();
-        notificationHubContext.Clients.All.showNotificationInPage(message.GetBody<String>());
+        var notificationHubContext = 
+        GlobalHost.ConnectionManager.GetHubContext<AbilityNotificationHub>();
+        notificationHubContext.Clients.All
+        .showNotificationInPage(message.GetBody<String>());
     });
 }
 
@@ -112,8 +117,8 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         var topicName = DispatcherConfiguration.ServiceBusNotificationTopic;
 
         var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
-        var message = new BrokeredMessage("This is a test message generated on " + DateTime.Now.ToUniversalTime().ToString("MM/dd/yyyy HH:mm:ss.fff",
-                        CultureInfo.InvariantCulture));
+        var dtTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss.fff", CultureInfo.InvariantCulture);
+        var message = new BrokeredMessage("This is a test message generated on " + dtTime);
         client.Send(message);
 
         await Task.Delay(TimeSpan.FromSeconds(15), cancellationToken);
