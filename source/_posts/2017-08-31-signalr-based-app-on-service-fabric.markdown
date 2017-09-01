@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Creating SignalR based microservices app on Azure Service Fabric"
-description: "A SignalR based sample application walkthrough, which is using microservices hosted on azure service fabric"
-date: 2017-08-31 19:00:00
+title:  "Creating SignalR based microservices app on Azure Service Fabric"
+description: "A SignalR based sample application walkthrough, which is using microservices hosted on azure service fabric."
+date:   2017-08-31 19:00:00
 comments: true
 image: /images/signalr.png
-categories: [Cloud]
+categories: [Cloud, Microservices]
 keywords: "microservices, cloud, azure, service fabric, signalr"
 ---
 <h3>What is Azure Service Fabric?</h3>
@@ -13,18 +13,16 @@ keywords: "microservices, cloud, azure, service fabric, signalr"
 You can read about Azure Service Fabric in detail from [here.][servicefabricintro] I will try to summarize it if you do not have a time to go through it in detail. In my previous [article][microservices], I have explained about microservices so the Azure Service Fabric is a platform to develop, deploy and monitor the microservices based applications. You need to spawn Service Fabric Cluster on Azure to host and run service fabric based microservices application for production deployment otherwise development machine is enough to run and host service fabric application locally using development cluster manager. If application runs locally as per the requirement, it can be packaged and published directly to Azure Service Fabric Cluster on cloud and can be monitored using service fabric explorer (web based tool). 
 
 Below points fairly explains what Azure Service Fabric is.
-
-<ol>
-  <li>It is a Platform as a Service cloud platform for Microservices based products/applications.</li>
-  <li>Prebuild programming model to develop application with Stateful, Stateless, Containerized                       microservices.</li>
-  <li>Service Fabric cluster can run on any platform (WINDOWS/Linux) regardless of Azure/On-Premise/Other             Clouds.</li>
-  <li>Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual       machines, scripts, Angular, or literally anything that makes up your application.</li>
-  <li>It provides development machine cluster manager locally so what you see running locally will run same way       on cloud.</li> 
-  <li>Deploy different versions of the same application side by side, and upgrade each application                    independently.</li>
-  <li>You can manage the lifecycle of your applications without any downtime, including breaking and nonbreaking      upgrades.</li>
-  <li>High density hosting - Applications are separate from VMs and service fabric manages application. It is         possible to deploy a large number of application to a small number of VMs.</li>
-  <li>Scalability can be controlled based on your application load.</li>
-</ol>
+  
+  1. It is a Platform as a Service cloud platform for Microservices based products/applications.
+  2. Prebuild programming model to develop application with Stateful, Stateless, Containerized                       microservices.
+  3. Service Fabric cluster can run on any platform (WINDOWS/Linux) regardless of Azure/On-Premise/Other             Clouds.
+  4. Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual       machines, scripts, Angular, or literally anything that makes up your application.
+  5. It provides development machine cluster manager locally so what you see running locally will run same way       on cloud. 
+  6. Deploy different versions of the same application side by side, and upgrade each application                    independently.
+  7. You can manage the lifecycle of your applications without any downtime, including breaking and nonbreaking      upgrades.
+  8. High density hosting - Applications are separate from VMs and service fabric manages application. It is         possible to deploy a large number of application to a small number of VMs.
+  9. Scalability can be controlled based on your application load.
 
 <h3>The SignalR/.Net based notification application hosted on Service Fabric</h3>
 
@@ -127,7 +125,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 In this project, signalr javascript client is used to connect with signalr host and as soon as message is received, we are appending those messages in web page. Following is the code snippet where we are connecting with the host and reading the received messages.
 
-{% highlight js %}
+{% highlight javascript %}
 $(function () {
     var connection = $.hubConnection("http://" + signalRHost);
     var abilityNotificationHubProxy = connection.createHubProxy('abilityNotificationHub');
