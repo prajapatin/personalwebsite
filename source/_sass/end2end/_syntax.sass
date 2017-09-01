@@ -1,5 +1,13 @@
 .highlight
   @extend %clearfix
+  +media($tablet-small)
+    max-width: $tablet-small !important
+  +media($phone-small)
+    max-width: $phone-small !important
+  +media($phone)
+    max-width: $phone !important
+  +media($phone-large)
+    max-width: $phone-large !important
   padding: 0
   margin:
     top: $base-spacing
