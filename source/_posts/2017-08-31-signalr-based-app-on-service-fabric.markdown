@@ -2,14 +2,12 @@
 layout: post
 title: "Creating SignalR based microservices app on Azure Service Fabric"
 description: "A SignalR based sample application walkthrough, which is using microservices hosted on azure service fabric"
-comments: true
 date: 2017-08-31 19:00:00
+comments: true
+image: /images/signalr.png
 categories: [Cloud]
 keywords: "microservices, cloud, azure, service fabric, signalr"
-image: /images/signalr.png
 ---
-
-
 <h3>What is Azure Service Fabric?</h3>
 
 You can read about Azure Service Fabric in detail from [here.][servicefabricintro] I will try to summarize it if you do not have a time to go through it in detail. In my previous [article][microservices], I have explained about microservices so the Azure Service Fabric is a platform to develop, deploy and monitor the microservices based applications. You need to spawn Service Fabric Cluster on Azure to host and run service fabric based microservices application for production deployment otherwise development machine is enough to run and host service fabric application locally using development cluster manager. If application runs locally as per the requirement, it can be packaged and published directly to Azure Service Fabric Cluster on cloud and can be monitored using service fabric explorer (web based tool). 
