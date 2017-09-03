@@ -10,7 +10,7 @@ keywords: "microservices, cloud, azure, service fabric, signalr"
 ---
 <h3>What is Azure Service Fabric?</h3>
 
-You can read about Azure Service Fabric in detail from [here.][servicefabricintro] I will try to summarize it if you do not have a time to go through it in detail. In my previous [article][microservices], I have explained about microservices so the Azure Service Fabric is a platform to develop, deploy and monitor the microservices based applications. You need to spawn Service Fabric Cluster on Azure to host and run service fabric based microservices application for production deployment otherwise development machine is enough to run and host service fabric application locally using development cluster manager. If application runs locally as per the requirement, it can be packaged and published directly to Azure Service Fabric Cluster on cloud and can be monitored using service fabric explorer (web based tool). 
+You can read about Azure Service Fabric in detail from [here.][servicefabricintro] I will try to summarize it if you do not have a time to go through it in detail. In my [previous article][microservices], I have explained about microservices so the Azure Service Fabric is a platform to develop, deploy and monitor the microservices based applications. You need to spawn Service Fabric Cluster on Azure to host and run service fabric based microservices application for production deployment otherwise development machine is enough to run and host service fabric application locally using development cluster manager. If application runs locally as per the requirement, it can be packaged and published directly to Azure Service Fabric Cluster on cloud and can be monitored using service fabric explorer (web based tool). 
 
 Below points fairly explains what Azure Service Fabric is.
   
@@ -21,7 +21,7 @@ Below points fairly explains what Azure Service Fabric is.
   5. It provides development machine cluster manager locally so what you see running locally will run same way       on cloud. 
   6. Deploy different versions of the same application side by side, and upgrade each application                    independently.
   7. You can manage the lifecycle of your applications without any downtime, including breaking and nonbreaking      upgrades.
-  8. High density hosting - Applications are separate from VMs and service fabric manages application. It is         possible to deploy a large number of application to a small number of VMs.
+  8. High density hosting - Applications are separate from VMs and service fabric manages application. It is         possible to deploy a large number of applications to a small number of VMs.
   9. Scalability can be controlled based on your application load.
 
 <h3>The SignalR/.Net based notification application hosted on Service Fabric</h3>
@@ -98,7 +98,7 @@ private static void ConfigureSignalR(IAppBuilder app)
 
 <h4>The NotificationDispatcher Project</h4>
 
-From this project, we want to send custom messages to service bus topic so that above mentioned SignalR host project can listen to those messages. The stateless service provides us entry point to run our service and we will be using it as below to send custom message every 15 seconds.
+From this project, we want to send custom messages to service bus topic so that above mentioned SignalR host service can listen to those messages. The stateless service provides us entry point to run our service and we will be using it as below to send custom message every 15 seconds.
 
 {% highlight C# %}
 
@@ -143,6 +143,8 @@ $(function () {
 
 });
 {% endhighlight %}
+
+This is the end of a small microservices based application, which is created to just get feel of what the Azure Service Fabric is. I am planning to write next blog about hosting docker container in Service Fabric and I am planning to create windows service and containerize it.
 
 [servicefabricintro]:   https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview
 [microservices]: /blog/2017/what-is-micro-services-architecture/
