@@ -57,7 +57,7 @@ We now have a Docker image and we want to run container using that image so we n
 docker run --name webapiservice -d -p 9000:9000 webapiservice
 {% endhighlight %}
 
-The above command runs Docker container with name as a 'webapiservice' and maps container port 9000 with host port 9000. Once you run the command, The Docker runtime will start the container and it will use PowerShell script provided in template as a CMD. Let us try to understand that init.ps1 file, here we are starting wendows service as sson as container starts. We are also making sure that we are making http call to our REST service and flushing out logs if any so that we can verify those logs running 'Docker logs {nameofcontainer}' PowerShell command.
+The above command runs Docker container with name as a 'webapiservice' and maps container port 9000 with host port 9000. Once you run the command, The Docker runtime will start the container and it will use PowerShell script provided in template as a CMD. Let us try to understand that init.ps1 file, here we are starting wendows service as soon as container starts. We are also making sure that we are making http call to our REST service and flushing out logs if any so that we can verify those logs running 'Docker logs {nameofcontainer}' PowerShell command.
 
 {% highlight PowerShell %}
 
