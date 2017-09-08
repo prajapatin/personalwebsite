@@ -93,40 +93,40 @@ Once you get an IP address of running container, you can browse through {IP Addr
 
 In the sample solution, you will find ServiceFabricHost project and following content explains the detail about hosting container on service fabric. My [previous article][previousarticle] explains about installing Service Fabric SDK, which is prerequisite to host this application on Azure Service Fabric.
 
-Following portion of ServiceManifest.xml file should have an Azure Container Registry path of your container registry, about which is explained in [previous article][previousarticle]. For your image URL, you will have to use full path including your container registry URL (e.g. abilitycontainerregistry.azurecr.io/pocs/webapiservice).
+Following portion of ServiceManifest.xml file should have an Azure Container Registry path of your container registry, about which is explained in [previous article][previousarticle]. For your image URL, you will have to use full path including your container registry URL.
 
-{% highlight xml %}
+{% highlight XML %}
 <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
-    <ImageName>[Your container image URL]</ImageName>
+        <ImageName>[Your container image URL]</ImageName>
     </ContainerHost>
 </EntryPoint>
 {% endhighlight %}
 
 Also you will need to understand following portion from the same file, where we are creating endpoint for our microservice.
 
-{% highlight xml %}
+{% highlight XML %}
 <Resources>
     <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="WebAPIHostServiceTypeEndpoint" Protocol="http" Port="9000" />
+       <Endpoint Name="WebAPIHostServiceTypeEndpoint" Protocol="http" Port="9000" />
     </Endpoints>
 </Resources>
 {% endhighlight %}
 
 The another file ApplicationMenifest.xml is also very important to understand as it explains port mapping between Container and host and credential to connect with Azure Container Registry so that Service Fabric can download the docker image. We need to know another very important detail about endpoint reference in port mapping, it is a same endpoint name we have provided in ServiceManifest.xml.
 
-{% highlight xml %}
+{% highlight XML %}
 <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="WebAPIHostServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="[Your Container Registry Account Name]" Password="[Container Registry Account Password]" Email="[You email address associated with Azure account]" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="9000" EndpointRef="WebAPIHostServiceTypeEndpoint"/>
+            <RepositoryCredentials AccountName="[Your Container Registry Account Name]" Password="[Container Registry Account Password]" Email="[You email address associated with Azure account]" PasswordEncrypted="false"/>
+            <PortBinding ContainerPort="9000" EndpointRef="WebAPIHostServiceTypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
@@ -134,8 +134,7 @@ The another file ApplicationMenifest.xml is also very important to understand as
 
 So once you understand and provide your detail in configuration, you are ready to publish service fabric application.
 
-
-[dockerlink]:   https://www.docker.com/what-docker
+[dockerlink]: https://www.docker.com/what-docker
 [dockerforwindows]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [githublink]: https://github.com/prajapatin/WindowsServiceContainerOnASF
 [previousarticle]: /blog/2017/signalr-based-app-on-service-fabric/
