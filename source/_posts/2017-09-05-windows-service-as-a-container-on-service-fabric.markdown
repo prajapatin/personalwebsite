@@ -10,7 +10,7 @@ keywords: "microservices, cloud, azure, service fabric, docker container, window
 ---
 <h3>What is Docker and Container?</h3>
 
-The [Docker][dockerlink] is a container platform using which you can create software containers. The container is a packaged software which shares the host operation system and contains all dependencies (System files, third-party software, settings or anything which is needed to run your containerized app) needed to run your software application.
+The [Docker][dockerlink] is a container platform using which you can create software containers. The container is a packaged software which shares the host operating system and contains all dependencies (System files, third-party software, settings or anything which is needed to run your containerized app) needed to run your software application.
 
 Containers are used to ship software faster and developers need not to be worried about whether the containerized app will run on specific machine or not. They are very light weight and share host operating system where you are running them and you can run multiple sandboxed containerized apps on specific VM or physical machine. There are many software product companies around the world which are using containers to release software on daily basis and saying multiple times in a day is also not wrong. 
 
