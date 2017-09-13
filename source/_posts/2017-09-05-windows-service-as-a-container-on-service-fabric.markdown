@@ -93,7 +93,7 @@ Once you get an IP address of running container, you can browse through {IP Addr
 
 In the sample solution, you will find ServiceFabricHost project and following content explains the detail about hosting container on service fabric. My [previous article][previousarticle] explains about installing Service Fabric SDK, which is prerequisite to host this application on Azure Service Fabric.
 
-Following portion of ServiceManifest.xml file should have an Azure Container Registry path of your container registry, about which is explained in [previous article][previousarticle]. For your image URL, you will have to use full path including your container registry URL.
+Following portion of ServiceManifest.xml file should have an Azure Container Registry path of your container registry and how to store/manage container images in Azure Container Registry is explained [here][containerregistry]. For your image URL, you will have to use full path including your container registry URL.
 
 {% highlight XML %}
 <EntryPoint>
@@ -138,3 +138,4 @@ So once you understand and provide your detail in configuration, you are ready t
 [dockerforwindows]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [githublink]: https://github.com/prajapatin/WindowsServiceContainerOnASF
 [previousarticle]: /blog/2017/signalr-based-app-on-service-fabric/
+[containerregistry]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli
