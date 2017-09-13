@@ -31,7 +31,7 @@ The Kappa Architecture suggests to remove cold path from the Lambda Architecture
 
 <image src="/images/KappaArchitecture.png"></image>
 
-The unified data/logs Queue would be fault tolerant and would be distributed in nature (e.g. Apache Kafka, Azure Service Bus etc.). To support fault tolarance, the data would be persisted to some kind of fault tolarant & distributed permanant storage. The Kappa architecture is similar to CQRS (command query responsibility segregation) pattern so if you are aware of it, you will find quite similarity with it.
+The unified data/logs Queue would be fault tolerant and would be distributed in nature (e.g. Apache Kafka, Azure Service Bus etc.). To support fault tolerance, the data would be persisted to some kind of fault tolerant & distributed permanent storage. The Kappa architecture is similar to CQRS (command query responsibility segregation) pattern so if you are aware of it, you will find quite similarity with it.
 
 <h3>Which architecture pattern to choose when?</h3>
 
