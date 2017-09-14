@@ -10,7 +10,7 @@ keywords: "Architecture, Lambda Architecture, Kappa Architecture, IoT, Analytics
 ---
 <h3>Lambda Architecture & Kappa Architecture use case in IoT</h3>
 
-In IoT world, the large amount of data from devices is pushed towards processing engine (in cloud or on-premise); which is called data ingestion. The scenario is not different from other analytics & data domain where you want to process high/low latency data. The data ingestion and processing is called pipeline architecture nad it has two flavours as explained below. I have provided diagrams for both type of architectures, which I have created using [Creately][creately]. The Creately is an online digraming tool, which you can utilize for your diagramming needs.
+In IoT world, the large amount of data from devices is pushed towards processing engine (in cloud or on-premise); which is called data ingestion. The scenario is not different from other analytics & data domain where you want to process high/low latency data. The data ingestion and processing is called pipeline architecture and it has two flavours as explained below. I have provided diagrams for both type of architectures, which I have created using [Creately][creately]. The Creately is an online diagraming tool, which you can utilize for your diagramming needs.
 
 <h3>Lambda Architecture</h3>
 
