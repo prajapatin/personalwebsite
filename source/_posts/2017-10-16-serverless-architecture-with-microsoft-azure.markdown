@@ -2,7 +2,7 @@
 layout: post
 title:  "Serverless architecture with Microsoft Azure"
 description: "Serverless architecture options currently available and how Microsoft Azure is a good alternative"
-date:   2017-10-17 23:15:00
+date:   2017-10-16 23:15:00
 comments: true
 image: /images/serverless.png
 categories: [Cloud, Architecture]
