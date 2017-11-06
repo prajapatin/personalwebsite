@@ -10,7 +10,7 @@ keywords: "microservices, cloud, azure, service fabric, actor model"
 ---
 <h3>What is the Actor Model programming paradigm?</h3>
 
-When we talk about scalability of any software systems - applications, we look at it with two aspects: (1) Whether the system is built with distributed architecture pattern (2) Are we using full capability of the hardware, where the system is hosted?
+When we talk about scalability of any software systems/applications, we look at it with two aspects: (1) Whether the system is built with distributed architecture pattern (2) Are we using full capability of the hardware, where the system is hosted?
 
 What normally people do when scalability requirement comes is that they go ahead and put multiple servers and host the application with good load balancing rules, so that immediate requirement will be satisfied. The poorly designed distributed software systems will eat-up more hardware than actually needed because the software system would not have been designed to take advantages of single server/node. If we utilize one server with it's fullest capabilities, you will need fewer number of servers to satisfy higher demand. The computer processors have certain limit and modern servers having multiple CPU cores need to be managed well in terms of software design. So to take advantage of multiple cores, we design software with multi-threading concepts to run our code concurrently and we know that how difficult is to debug and fix bugs in multi-threading applications.
 
@@ -31,7 +31,7 @@ The mailbox is where the actor will receive messages in sequential order and act
 
 <h4>Implementation options</h4>
 
-There are many options to implement Actor Model in distributed software architecture, the Erlang is the language built using the concept of actor model. There is an [Akka][] framework in Java and .Net port of the same framework as an [Akka.net][], which can be used to develop enterprise scale microservices applications. There is a cloud based microservices platform called Azure Service Fabric, about which I have written in [one of my][servicefabric] previous articles. I am going to explain very simple Actor Model based microservices application using Azure Service Fabric.
+There are many options to implement Actor Model in distributed software architecture, the Erlang is the language built using the concept of actor model. There is an [Akka][akkalink] framework in Java and .Net port of the same framework as an [Akka.net][akkadotnet], which can be used to develop enterprise scale microservices applications. There is a cloud based microservices platform called Azure Service Fabric, about which I have written in [one of my][servicefabric] previous articles. I am going to explain very simple Actor Model based microservices application using Azure Service Fabric.
 
 <h3>Actor Model Service using Azure Service Fabric</h3>
 
@@ -39,141 +39,62 @@ The source code for the sample application can be cloned/downloaded from [here][
 
 <h4>Sensor Actor</h4>
 
-The sensor actor has four methods: (1) To Set the temperature (2) To get the temperature (the aggregator actor will call this method to collect the temperature value) (3) To set the index value for each instance of an actor (4) To get the index value for each instance of an actor. We would be using these methods in test project, which shows how to connect with actor and call specific method. The Service Fabric template simplifies the development of Actor by hiding Message sending/receiving functionality (you can look for auto generated ActorEventSource.cs file in each actor project to understand how the message communication logic is implemented) so that we can concentrate
-
-Below points fairly explains what Azure Service Fabric is.
-  
-  1. It is a Platform as a Service cloud platform for Microservices based products/applications.
-  2. Prebuild programming model to develop application with Stateful, Stateless, Containerized                       microservices.
-  3. Service Fabric cluster can run on any platform (WINDOWS/Linux) regardless of Azure/On-Premise/Other             Clouds.
-  4. Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual       machines, scripts, Angular, or literally anything that makes up your application.
-  5. It provides development machine cluster manager locally so what you see running locally will run same way       on cloud. 
-  6. Deploy different versions of the same application side by side, and upgrade each application                    independently.
-  7. You can manage the lifecycle of your applications without any downtime, including breaking and nonbreaking      upgrades.
-  8. High density hosting - Applications are separate from VMs and service fabric manages application. It is         possible to deploy a large number of applications to a small number of VMs.
-  9. Scalability can be controlled based on your application load.
-
-<h3>The SignalR/.Net based notification application hosted on Service Fabric</h3>
-
-You can download the source code for the application from [here][github],  you will have to replace following placeholders with your azure resources. 
-
-  1. "[Your Service Bus Connection String]" - To create your service bus namespace on azure, please go through       [this][servicebus] article, we will be creating topics, subscriptions for this sample application.
-  2. "[signalrhost-azure-url-without-http]:[signalr-host-port]" - The signalrhost-azure-url-without-http is the      service fabric cluster host and port you can hard code as a 8000.
-  3. "[Your Service Fabric Connection Endpoint]" - You will need this to deploy your microservices on service        fabric platform, it is also a service fabric cluster host without http prefixed. 
-
-In addition to above changes, you will have to create service bus topics & subscription on Azure Service Bus as below.
-
-  1. AbilityNotificationsBackplane - This topic would be used by SignalR for scalability of notification host.       With this service bus topic, you can scale your signalr host on cloud without worrying about from which node    your notifications will be served.
-  2. AbilityNotifications - This topic will be used to send/receive notification messages.
-  3. AbilityNotificationsSubscriber - This subscription is needed to route the messages received to SignalR so       that it can push those messages to web client. 
-
-
-You will also need [Service Fabric SDK][servicefabric] to run the sample, the same link provides instruction on installing an sdk on Visual Studio 2015 and Visual Studio 2017. I have used Visual Studio 2017 Community Edition (it is a free and full featured visual studio, which you can download from microsoft website).
-
-Now we are ready to understand the sample microservices application. I will try to provide some of the code references in article but if you need the full source code, you can download from github URL provided above. In the sample application, we have three microservices project and one service fabric project. The SignalRHost project is a stateless microservice and provides hosting of signalr, the NotificationDispatcher project is sending messages through service bus at 15 seconds of interval and it is a stateless microservice, The NotificationListener project is a web application where we have hosted our web page to see notification messages pushed by signalr host and it is also a stateless microservice. These all microservices are stateless because we are maitaining our message state through service bus but Service Fabric provides template to create statefull services as well. There is a fourth project - SignalROnServiceFabric, which is a service fabric project hosting all above mentioned microservices.
-
-<h4>The SignalRHost Project</h4>
-
-There are two code snippets, which are important to understand in this project. The first code snippet is about allowing any browser to access the host by allowing cross origin request for all domains.
+The sensor actor has four methods: (1) To Set the temperature (2) To get the temperature (the aggregator actor will call this method to collect the temperature value) (3) To set the index value for each instance of an actor (4) To get the index value for each instance of an actor. We would be using these methods in test project, which shows how to connect with actor and call specific method. The Service Fabric template simplifies the development of Actor by hiding Message sending/receiving functionality (you can look for auto generated ActorEventSource.cs file in each actor project to understand how the message communication logic is implemented) so that we can concentrate on logic. Following code is important in Sensor Actor project.
 
 {% highlight C# %}
-
- private static void ConfigureCors(IAppBuilder app)
- {
-    app.UseCors(CorsOptions.AllowAll);
- }
-
-{% endhighlight %}
-
-The second snippet is about creating backplane for SignalR, where we are using service bus so that we can horizontally scale our signalr host. Also we can listen for any new messages on service bus subscription and send those messages to connected client through websocket.
-
-{% highlight C# %}
-
-private static void ConfigureSignalR(IAppBuilder app)
+Task<double> ISensorActor.GetTemperatureAsync()
 {
-    app.UseAesDataProtectorProvider(SignalRHostConfiguration.EncryptionPassword);
-
-    if (SignalRHostConfiguration.UseScaleout)
+    return this.StateManager.GetStateAsync<ActorState>("sensorState").ContinueWith(sensorState =>
     {
-        var serviceBusConfig = new ServiceBusScaleoutConfiguration(SignalRHostConfiguration.ServiceBusConnectionString, 
-            SignalRHostConfiguration.ServiceBusBackplaneTopic);
-
-        GlobalHost.DependencyResolver.UseServiceBus(serviceBusConfig);
-        app.MapSignalR();
-    }
-
-    var configuration = new HubConfiguration
-     { EnableDetailedErrors = true, EnableJavaScriptProxies = false };
-    app.MapSignalR(configuration);
-
-    var connectionString = SignalRHostConfiguration.ServiceBusConnectionString;
-    var topicName = SignalRHostConfiguration.ServiceBusNotificationTopic;
-    var topicSubscriptionName = SignalRHostConfiguration.TopicSubscriptionName;
-
-    var client = 
-    SubscriptionClient.CreateFromConnectionString(connectionString, 
-    topicName, topicSubscriptionName);
-
-    client.OnMessage(message =>
-    {
-        var notificationHubContext = 
-        GlobalHost.ConnectionManager.GetHubContext<AbilityNotificationHub>();
-        notificationHubContext.Clients.All
-        .showNotificationInPage(message.GetBody<String>());
+        ActorEventSource.Current.ActorMessage(this, "Getting current temperature value as {0}", sensorState.Result.Temperature);
+        return sensorState.Result.Temperature;
     });
 }
 
-{% endhighlight %}
-
-<h4>The NotificationDispatcher Project</h4>
-
-From this project, we want to send custom messages to service bus topic so that above mentioned SignalR host service can listen to those messages. The stateless service provides us entry point to run our service and we will be using it as below to send custom message every 15 seconds.
-
-{% highlight C# %}
-
-protected override async Task RunAsync(CancellationToken cancellationToken)
+Task ISensorActor.SetTemperatureAsync(double temperature)
 {
-    
-    long iterations = 0;
-
-    while (true)
+    return this.StateManager.GetStateAsync<ActorState>("sensorState").ContinueWith(sensorState =>
     {
-        cancellationToken.ThrowIfCancellationRequested();
+        ActorEventSource.Current.ActorMessage(this, "Setting current temperature of value to {0}", temperature);
+        this.StateManager.SetStateAsync<ActorState>("sensorState", new ActorState { Temperature = temperature, Index = sensorState.Result.Index });
+    });
 
-        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
-
-        var connectionString = DispatcherConfiguration.ServiceBusConnectionString;
-        var topicName = DispatcherConfiguration.ServiceBusNotificationTopic;
-
-        var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
-        var dtTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss.fff", CultureInfo.InvariantCulture);
-        var message = new BrokeredMessage("This is a test message generated on " + dtTime);
-        client.Send(message);
-
-        await Task.Delay(TimeSpan.FromSeconds(15), cancellationToken);
-    }
 }
 {% endhighlight %}
 
-<h4>The NotificationListener - a web Project</h4>
+In above code we are accessing state manager (it is distributed and provided by service fabric) and retrieving & storing temperature value with specific index. Also we are sending message to current actor through auto generated event/message class.
 
-In this project, signalr javascript client is used to connect with signalr host and as soon as message is received, we are appending those messages in web page. Following is the code snippet where we are connecting with the host and reading the received messages.
+<h4>Aggregator Actor</h4>
 
-{% highlight javascript %}
-$(function () {
-    var connection = $.hubConnection("http://" + signalRHost);
-    var abilityNotificationHubProxy = connection.createHubProxy('abilityNotificationHub');
-    abilityNotificationHubProxy.on('showNotificationInPage', function (message) {
-        $("#notificationArea").append(message).append("<br/>");
+Aggregator actor collects all temperature values from all actors and provides average value, here we can see that how easy is to access specific actor from service fabric through Actor APIs provided.
+
+{% highlight C# %}
+public Task<double> GetTemperatureAsync()
+{
+    Task<double>[] tasks = new Task<double>[1000];
+    double[] readings = new double[1000];
+    Parallel.For(0, 1000, i =>
+    {
+        var proxy = ActorProxy.Create<ISensorActor>(new ActorId(i), "fabric:/SensorAggregator");
+        tasks[i] = proxy.GetTemperatureAsync();
     });
-    connection.start().done(function () {
-        // send notification to the server.
+    Task.WaitAll(tasks);
+    Parallel.For(0, 1000, i =>
+    {
+        readings[i] = tasks[i].Result;
     });
-
-});
+    return Task.FromResult(readings.Average());
+}
 {% endhighlight %}
 
-This is the end of a small microservices based application, which is created to just get feel of what the Azure Service Fabric is. I am planning to write next blog about hosting docker container in Service Fabric and I am planning to create windows service and containerize it.
+In above code we can see that we can access specific actor using id from actor proxy using actor interface and fabric name. It is simple logic to access specific method and rest of the complexities hidden inside service fabric API & runtime.
 
+<h4>Sensor Agrregator Test Project</h4>
+
+This is a console project to test the Actor based microservices application. Once you deploy service fabric project in local cluster, you can run the console application and verify that how you can access actors running inside local service fabric cluster.
+
+
+[akkalink]: https://akka.io/
+[akkadotnet]: http://getakka.net/
 [servicefabric]: /blog/2017/signalr-based-app-on-service-fabric/
 [github]: https://github.com/prajapatin/ActorPatternOnServiceFabric
