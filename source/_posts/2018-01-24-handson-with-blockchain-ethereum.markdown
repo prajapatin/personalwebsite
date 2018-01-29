@@ -19,7 +19,7 @@ So the blockchain has to be started by someone using genesis block and we will d
 <h3>Development Environment for Ethereum</h3>
 
 1. Operating System: Ubuntu 16.04 LTS (I have used Windows 10 as well for the same app and it works exactly the same but this post is about Linux)
-2. Geth: Using geth, you can run full Ethereum node. It is written in Go and it is also known as go-ethereum, you can download it from [here][gethdownload].
+2. Geth: Using geth, you can run full Ethereum node. It is written in GoLang and it is also known as go-ethereum, you can download it from [here][gethdownload].
 3. Mist: It is a kind of blockchain browser where you can browse the DApp, deploy your smart contracts, open Remix (it is a Solidity editor using which you can write smart contract), manage your accounts etc. You can download it from [here][mistdownload], go ahead and select Mist-linux32-0-9-3.deb or Mist-linux64-0-9-3.deb based on your OS architecture.
 
 You do not need any other tools for this hands-on demo but for your real world use cases, you may need other tools.
