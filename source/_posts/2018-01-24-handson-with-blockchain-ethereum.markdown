@@ -10,7 +10,7 @@ keywords: "Blockchain, Ethereum, Ubuntu"
 ---
 <h3>What is Blockchain?</h3>
 
-The blockchain is a distributed ledger of economic transactions, which can be programmed to record not only crypto-currency transactions but anything having value. There are many implementation technologies of blockchain but I am going to provide detail on Ethereum on this brief hands-on post. The chain word in blockchain makes it definition more clear where one block of transactions connects with another block using some part of signature of previous block. The blockchain will start from first block, which is called genesis block and from that block onwards chain of block starts to create whole blockchain network, you can refer below image explaining same concepts.
+The blockchain is a distributed ledger of economic transactions, which can be programmed to record not only crypto-currency transactions but anything having value. There are many implementation technologies of blockchain but I am going to provide detail on Ethereum on this brief hands-on post. The chain word in blockchain makes it's definition more clear where one block of transactions connects with another block using some part of signature of previous block. The blockchain will start from first block, which is called genesis block and from that block onwards chain of block starts to create whole blockchain network, you can refer below image explaining same concepts.
 
 <image src="/images/ethereum-node-chain.png"></image>
 
