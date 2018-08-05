@@ -17,8 +17,8 @@ sass:
 
 # SEO settings
 title: Nilesh Prajapati
-description: "It is all about software architecture"
-keywords: "Micro Services, SOA, Cloud, Azure, SaaS, Big Data, IoT, IIoT,Open Source"
+description: "All about software architecture"
+keywords: "Micro Services, SOA, Cloud, Azure, SaaS, Big Data, IoT, IIoT, Blockchain, Open Source"
 url: https://nileshprajapati.net
 baseurl: ""
 
@@ -31,7 +31,7 @@ disqus_site_shortname: "nileshprajapati"
 author:
   name: Nilesh Prajapati
   job: Software Engineer
-  bio: "Software Architect with experience on SOA, Micro Services, Message Driven architecture and IOT, IIOT, Cloud(Azure, AWS), Big Data-Hadoop enthusiast"
+  bio: "Hands-on Software Architect with experience on SOA, Micro Services, Message Driven architecture and IOT, IIOT, Cloud(Azure, AWS), Blockchain, Big Data-Hadoop enthusiast"
   thumb: /images/author.jpg
   email: nilesh.prajapati@outlook.com
   url: http://nileshprajapati.net/
