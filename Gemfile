@@ -13,6 +13,7 @@ gem "rake", "~>10.5"
 gem "sass", "~>3.4"
 gem "json", "~> 2"
 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
