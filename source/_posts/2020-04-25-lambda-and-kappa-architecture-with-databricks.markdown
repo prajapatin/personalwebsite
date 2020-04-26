@@ -43,7 +43,7 @@ transactions to Apache Spark™ and big data workloads. It is specifically more 
 
 With Delta Lake capabilities, data can be processed using various Databricks notebooks and the processed result can be stored in various tables as a thin layer on top of the Data Lake. The data from Delta Lake tables can be queried using various clients with near-realtime and in batches as a unified pipeline. This unified approach brings less complexity by avoiding data management and multiple storage systems. The main advantage here is that queries can be performed on streaming and historical data at the same time.
 
-<h3>Is the Kappa Architecture better thatn Lambda with Databricks?</h3>
+<h3>Is the Kappa Architecture better than Lambda with Databricks?</h3>
 
 As I mentioned earlier due to agility in the analytics technology landscape, it is better to evaluate various technologies and constantly improve the architecture (certainly without spending significant cost and resources). While selecting Lambda or Kappa architecture for IoT Analytics, there used to be suggestions like it all depends on use cases but with technologies like Databricks and Delta Lake I can confidently say that Kappa architecture is better if it is implemented with the right set of technologies. 
 
