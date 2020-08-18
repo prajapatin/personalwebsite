@@ -26,14 +26,15 @@ The use cases of AI/ML have been wide-spread in various industries & domains hav
 
 **_Dynamic Scalability requirement in ML Inferencing_**
 
-The ML model inferencing demnads very high performance and scalability in certain situtaion so the runtime environment must be capable of utilizing hardware acceleration or should be able to run in low memory footprint. So preparing inference runtime with dynamic scalability and performance is another challenge, particularly to support various inference runtime targets mentioned in above paragraph.
+In certain situation, the ML model inferencing demnads very high performance and scalability so the runtime environment must be capable of utilizing hardware acceleration or should be able to run in low memory footprint. So preparing inference runtime with dynamic scalability and performance is another challenge, particularly to support various inference runtime targets mentioned in above paragraph.
 
 
 <h3>Operationalizing ML Models using ONNX</h3>
 
-To overcome challenges mentioned, there needs to be a common ML inference environment without needing library/tool specific dependencies. To have such common inference runtime, there needs to be a common format for machine learning model so that models trained using various libraries can be converted to common format and can be used for scoring using common inference environment. There is such open format for machine learning model, which is called [ONNX](https://onnx.ai/).
+To overcome challenges mentioned above, there needs to be a common ML inference environment without needing library/tool specific dependencies. To have such common inference runtime, there needs to be a common format for machine learning model so that models trained using various libraries can be converted to common format and can be used for scoring using common inference environment. There is such open format for machine learning model, which is called [ONNX](https://onnx.ai/).
 
 **What is ONNX?**
+
 
 **What is ONNX Runtime?**
 
