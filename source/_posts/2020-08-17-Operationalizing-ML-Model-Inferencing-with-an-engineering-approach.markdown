@@ -4,7 +4,7 @@ title:  "Operationalizing the Machine Learning model inferencing with an enginee
 description: "An engineering approach to operationalize the machine learning model inferencing using open ML model format - ONNX."
 date:   2020-08-17 23:30:00
 comments: true
-image: /images/Operationalize ML Model using ONNX.png
+image: /images/OperationalizeMLModel.png
 categories: [Architecture, Data Analytics]
 keywords: "Architecture, Analytics, ONNX"
 ---
@@ -46,7 +46,7 @@ The [ONNX Runtime](https://microsoft.github.io/onnxruntime/) is an opensource in
 
 <h4>Proposed Architecture</h4>
 
-<image src="/images/Operationalize ML Model using ONNX.png"></image>
+<image src="/images/OperationalizeMLModel.png"></image>
 
 The proposed architecture recommends converting machine learning models trained using various libraries/frameworks into ONNX format. There are many open-source plug-ins available to convert models trained using Keras, SKLearn, Pytorch, Matlab etc. to common ONNX format so that only dependency for inference environment would be ONNX Runtime and nothing else. It helps Machine Learning engineers/Data Scientists to use the preferred framework without worrying about downstream inferencing implications. To manage the versioning of ML Models, it is recommended to use the model registry provided by another opensource component called [MLFlow Model Registry](https://www.mlflow.org/docs/latest/model-registry.html). The core component in the proposed architecture is the ONNX inference runtime which is available in various languages targeting different technology platforms so that it can be plugged into existing technology stack. The MLFlow model registry needs to be integrated with ONNX Runtime such a way that runtime can load the ML Model from model registry based on inferencing request where the request can specify specific model and version to be used for inferenecing. The architecture does not cover security and access rights mechanism as it would be specific to enterprise AI strategy. The MLOps pipelines can train the model, convert the model into ONNX format, and then store it to MLFlow model registry with specific version information. With this architecture approach, lots of complexities go away from MLOps pipelines as we are not building any docker images, not preparing any conda environment for dependencies, or not worrying about the target inferencing environment. The availability of ONNX Inference Runtime in various language platforms helps operationalize the same models in different hardware and software requirements.
 
