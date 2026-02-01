@@ -12,9 +12,14 @@
 
   pre
     margin: 0
-    padding: $small-spacing $base-spacing
+    box-sizing: border-box
+    width: 100%
+    padding: $small-spacing
     white-space: pre
     line-height: 23px
+
+    +media($tablet-small)
+      padding: $small-spacing $base-spacing
     overflow-x: auto
     margin-bottom: 0
     word-break: inherit
