@@ -15,13 +15,14 @@
     &, img
       background-color: #f1eff0
       border-radius: $base-border-radius
+      display: block
 
     +media($tablet-small)
       float: left
       max-width: 250px
       margin-right: $small-spacing
       margin-bottom: $small-spacing
-      padding: $small-spacing
+      padding: 0
       border: $base-border
 
   .read-more
@@ -64,7 +65,7 @@
         margin: 0
 
       > a
-        display: inline-block
+        display: block
 
       &.no-image > a
         width: 100%
