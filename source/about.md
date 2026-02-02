@@ -5,8 +5,12 @@ permalink: /about/
 ---
 <!-- <h2>Nilesh Prajapati</h2> -->
 
-I live in Bangalore with my lovely wife Mamata and two kids (Nishtha & Lakshya). I like travelling (particularly visiting natural places, archaeological sites, hill stations), reading books, listening audio books, programming and playing with kids.
+I believe the best technology leaders never stop exploring. My career has spanned the spectrum from the massive scale of Big Data and Cloud to the intelligent edge of IoT and IIoT. While my roots are in SOA and Microservices, my focus has shifted toward the frontier of **Agentic System Architecture** and **AI**. I am passionate about leveraging open-source innovation to build systems that are not just resilient, but truly autonomous.
 
-Professionally I am a Software Engineer and love designing, developing scalable & distributed software products. I have had a good fortune to work in products having various architecture patterns like SOA, Micro Services, Big Data Analytics, Message Driven, Client-Server with on premise and cloud deployment model. I consider myself a polyglot developer and I do not restrict myself to specific technology or specific platform and due to that open mind, I have had an opportunity to architect products with Microsoft.Net, Big Data, Java, Node.js, Blockchain and other open source technologies.
+As a **polyglot developer**, I refuse to be boxed into a single platform. Whether it is Python, Java, .NET, Node.js, or Blockchain, I choose the right tool for the job. This flexibility has allowed me to lead teams through complex legacy migrations and build cloud-native SaaS platforms from scratch.
 
-Recently I have been working on IoT based platform with Microsoft Azure cloud and analytics technologies. I love learning from others and also enjoy sharing knowledge with others. You can connect with me regards to above mentioned technologies, architecture and I can share whatever I have learned and will definitely learn something from you as well.
+For me, leadership is not about staying in the boardroom but it is about staying close to the code. I believe in building systems and building people.
+
+**The Personal Side** I call Bangalore home, where I live with my wife, Mamata, and our children, Nishtha and Lakshya. When I am not at my desk, you will find me exploring the outdoors, visiting archaeological sites, relaxing at a hill station, or getting lost in a good audiobook. I have found that stepping away from technology is often the best way to gain a fresh perspective on it.
+
+
