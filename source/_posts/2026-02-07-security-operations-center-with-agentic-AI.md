@@ -146,7 +146,7 @@ async def monitor_log_stream(self, source: str):
 ```
 
 ### 2. Incident Response Agent: The First Responder
-Once a threat is confirmed, the Incident Response (IR) agent takes over. It is equipped with **Playbooks**—predefined workflows for common scenarios like Ransomware or Phishing.
+Once a threat is confirmed, the Incident Response (IR) agent takes over. It is equipped with **Playbooks**, a set of predefined workflows for common scenarios like Ransomware or Phishing.
 
 It can actively **contain threats** by isolating hosts or disabling accounts, but safer production deployments can enforce extensive logging instead of auto-execution.
 
