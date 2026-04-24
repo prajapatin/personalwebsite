@@ -2,7 +2,7 @@
 layout: post
 title: "Persistent Memory for Agentic Systems with Hindsight"
 description: "Explore the critical role of memory management in agentic AI. Learn the difference between short-term and long-term memory, and how Hindsight equips LangChain agents with durable intelligence for DevOps incident response."
-date: 2026-04-23 12:00:00 +0530
+date: 2026-04-25 12:00:00 +0530
 image: /images/hindsight_memory_architecture.png
 categories: [AI, Agentic AI, LangChain, Python, DevOps]
 tags: [ai, memory, hindsight, langchain, multi-agent-system, python]
@@ -52,7 +52,7 @@ Additionally, Hindsight supports **Per-Agent Banks**. You can configure isolated
 
 To demonstrate this, I have built a demo project integrating LangChain with Hindsight to simulate a DevOps Incident Response pipeline. 
 
-You can find the complete source code on GitHub.
+You can find the complete source code on [GitHub](https://github.com/prajapatin/ai-agent-long-term-memory).
 
 ### The Scenario
 The pipeline consists of three specialized LangChain ReAct agents, each equipped with its own Hindsight memory bank:
@@ -168,5 +168,7 @@ By spinning up the Hindsight server locally using Docker Compose, we can dive in
 ## Conclusion
 
 Agentic systems cannot reach their full potential without persistent memory. By moving beyond simple short-term context windows and integrating robust long-term memory solutions like Hindsight, we can build agents that truly learn, adapt, and compound their value over time.
+
+Check out the complete code on [GitHub](https://github.com/prajapatin/ai-agent-long-term-memory) to see how you can equip your own agents with durable memory.
 
 I highly encourage you to explore the concept, run the multi-agent pipeline, and watch the agents build their expertise from one incident to the next! Let me know in the comments if you have any thoughts on managing memory in agentic AI.

@@ -2,7 +2,7 @@
 layout: post
 title: "Dynamic LLM Fine-tuning: Serving Multiple Tones with a Single Base Model using LoRA"
 description: "Explore how to fine-tune and serve multiple LoRA adapters on top of a single Llama 3.1 base model for dynamic tone adaptation."
-date: 2026-04-20 12:00:00 +0530
+date: 2026-04-19 12:00:00 +0530
 image: /images/dynamic_lora_adapter.png
 categories: [AI, LLM, Python, Architecture]
 tags: [llm, lora, fine-tuning, python, fastapi, huggingface]
