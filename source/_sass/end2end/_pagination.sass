@@ -1,14 +1,20 @@
 .pagination
   text-align: center
   margin: $base-spacing * 1.5 0 0
-  display: flex
-  justify-content: center
-  align-items: center
 
   @extend %clearfix
 
+  ul
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: nowrap
+    padding: 0
+    margin: 0
+
   li
-    padding: 0 .4em
+    padding: 0 .3em
+    list-style: none
 
   li, a, span
     display: inline-block
@@ -17,12 +23,17 @@
     line-height: 1.2em
     font-size: rem(13)
     font-family: $heading-font-family
+    white-space: nowrap
+
+  .button-ghost
+    padding: 0.5em 1.2em
 
   .page-number
     color: $medium-gray-color
     font-style: normal
     font-weight: $font-weight-medium
-    padding: 0 1em
+    padding: 0 0.5em
+    font-size: rem(12)
 
   span.disabled
     opacity: 0.4
