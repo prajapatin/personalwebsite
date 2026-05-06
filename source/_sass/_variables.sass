@@ -1,18 +1,20 @@
 // Typography
 $base-font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif
-$heading-font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif
+$heading-font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif
 
 // Font Sizes
-$unit-font-size: 18px
+$unit-font-size: 17px
 $base-font-size: 1em
 
 // Line height
-$base-line-height: 1.6
-$heading-line-height: 1.3
+$base-line-height: 1.7
+$heading-line-height: 1.25
 
 // font weight
 $font-weight-light: 300
 $font-weight-normal: 400
+$font-weight-medium: 500
+$font-weight-semibold: 600
 $font-weight-bold: 700
 
 // Other Sizes
@@ -22,17 +24,26 @@ $xsmall-spacing: $base-spacing / 3
 $big-spacing: $base-spacing * 2.5
 $base-z-index: 0
 
-// Colors
-$primary-color: #337ab7
+// Colors — Modern palette
+$primary-color: #0047AB
+$primary-light: #3373C4
+$primary-dark: #003380
+$accent-color: #0891B2
+$accent-warm: #F59E0B
 $white-color: #fff
 $black-color: #000
 $blue-color: #477dca
-$dark-gray-color: #232323
-$medium-gray-color: #9a9a9a
-$light-gray-color: #dedede
+$dark-gray-color: #0F172A
+$medium-gray-color: #94a3b8
+$light-gray-color: #e2e8f0
+
+// Gradient
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $accent-color 100%)
+$gradient-hero: linear-gradient(160deg, #f0f4ff 0%, #e8edf5 40%, #f8fafc 100%)
+$gradient-subtle: linear-gradient(135deg, rgba($primary-color, 0.05) 0%, rgba($accent-color, 0.05) 100%)
 
 // Font Colors
-$base-font-color: lighten($dark-gray-color, 25%)
+$base-font-color: #334155
 $action-color: $primary-color
 
 // Border
@@ -40,16 +51,24 @@ $base-border-color: $light-gray-color
 $base-border: 1px solid $base-border-color
 
 // Background Colors
-$base-background-color: $white-color
+$base-background-color: #f8fafc
 $secondary-background-color: tint($base-border-color, 75%)
+$surface-color: $white-color
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06)
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3)
 
+// Shadows — Layered modern shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05)
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05)
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)
+
 // Animations
 $base-duration: .3s
 $base-timing: ease-in-out
+$smooth-timing: cubic-bezier(0.4, 0, 0.2, 1)
 
 $default-feature: min-width
 $phone-small: 320px
@@ -59,10 +78,11 @@ $tablet-small: 768px
 $tablet: 1024px
 $desktop: 1240px
 
-// Radius
-$small-border-radius: 3px
-$base-border-radius: 6px
-$big-border-radius: 10px
+// Radius — Softer, more modern
+$small-border-radius: 6px
+$base-border-radius: 10px
+$big-border-radius: 16px
+$pill-border-radius: 9999px
 
 // Custom icons
 //

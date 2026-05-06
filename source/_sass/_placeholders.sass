@@ -5,25 +5,28 @@
   appearance: none
   background-color: $action-color
   border: 0
-  border-radius: $base-border-radius
+  border-radius: $pill-border-radius
   color: #fff
   cursor: pointer
   display: inline-block
-  font-family: inherit
-  font-size: inherit
+  font-family: $heading-font-family
+  font-size: 0.9em
   -webkit-font-smoothing: antialiased
-  font-weight: 700
+  font-weight: $font-weight-semibold
   line-height: 1
-  padding: $small-spacing $base-spacing
+  padding: 0.7em 1.8em
   text-decoration: none
-  transition: background-color $base-duration $base-timing
+  transition: all $base-duration $smooth-timing
   user-select: none
   vertical-align: middle
   white-space: nowrap
+  letter-spacing: 0.01em
 
   &:hover,
   &:focus
-    background-color: shade($action-color, 20%)
+    background-color: $primary-dark
+    transform: translateY(-1px)
+    box-shadow: $shadow-md
 
   &.disabled,
   &:disabled
@@ -36,3 +39,4 @@
     &:focus
       color: inherit
       background: none transparent
+      transform: none

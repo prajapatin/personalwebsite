@@ -2,18 +2,45 @@
 .social
   padding: $base-spacing 0
   @extend %clearfix
+  display: flex
+  justify-content: center
+  gap: 0.5rem
 
   li
     display: inline-block
-    padding: 0 ($base-spacing / 2.5)
+    padding: 0
 
   a
     color: $medium-gray-color
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 44px
+    height: 44px
+    border-radius: 50%
+    transition: all $base-duration $smooth-timing
+    border: 1px solid transparent
 
     &:hover,
     &:active,
     &:focus
       color: $primary-color
+      background: rgba($primary-color, 0.08)
+      border-color: rgba($primary-color, 0.15)
+      transform: translateY(-2px)
 
   i
-    font-size: 1.6em
+    font-size: 1.3em
+
+// Social in hero (light bg variant)
+.hero .social
+  a
+    color: $medium-gray-color
+    border-color: rgba($primary-color, 0.1)
+
+    &:hover,
+    &:active,
+    &:focus
+      color: $primary-color
+      background: rgba($primary-color, 0.06)
+      border-color: rgba($primary-color, 0.15)

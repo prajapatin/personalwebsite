@@ -10,11 +10,15 @@
 
   &-meta
     font-size: .8rem
-    font-weight: 300
+    font-weight: $font-weight-normal
+    color: $medium-gray-color
+    display: flex
+    align-items: center
+    gap: 0.5em
 
   &-thumbnail
     &, img
-      background-color: #f1eff0
+      background-color: $base-background-color
       border-radius: $base-border-radius
       display: block
 
@@ -24,18 +28,32 @@
       margin-right: $small-spacing
       margin-bottom: $small-spacing
       padding: 0
-      border: $base-border
+      border: 1px solid rgba($light-gray-color, 0.5)
+
+    img
+      transition: transform 0.5s $smooth-timing
+      &:hover
+        transform: scale(1.02)
 
   .read-more
-    color: lighten($action-color, 10%)
+    color: $primary-color
+    font-weight: $font-weight-medium
+    font-size: 0.9em
+    display: inline-flex
+    align-items: center
+    transition: all $base-duration $smooth-timing
+    &:hover
+      color: $primary-dark
 
   &-header
     margin-bottom: $base-spacing
 
   &-title
-    font-size: rem(26)
+    font-size: rem(24)
     margin-bottom: 0
-    line-height: 1.5em
+    line-height: 1.4em
+    letter-spacing: -0.02em
+    transition: color $base-duration $smooth-timing
 
   &-list
     .post
@@ -49,6 +67,9 @@
         &:focus
           color: $primary-color
 
+          .post-title
+            color: $primary-color
+
 .post-list
   .post
     &-content,
@@ -60,6 +81,8 @@
     &-thumbnail
       margin-bottom: $base-spacing
       padding: 0
+      overflow: hidden
+      border-radius: $base-border-radius
 
       +media($tablet-small)
         width: 250px
@@ -71,22 +94,35 @@
       &.no-image > a
         width: 100%
         min-height: 200px
-        background: url(../images/placeholder.png) no-repeat 50%
-        background-size: cover
+        background: $gradient-subtle
+        border-radius: $base-border-radius
 
     &-content
       +media($tablet-small)
         padding: 0 0 0 $base-spacing
-.post-tag 
-    display: inline-block
-    background: rgba(106,159,181,0.15)
-    padding: 0 .5rem
-    margin-right: .5rem
-    margin-bottom: .5rem
-    border-radius: 4px
-    color: #6a9fb5
-    font-family: "PT Sans",Helvetica,Arial,sans-serif
-    font-size: 90%
-    -webkit-transition: all 0.1s ease-in-out
-    -moz-transition: all 0.1s ease-in-out
-    transition: all 0.1s ease-in-out
+
+.post-tag
+  display: inline-block
+  background: rgba($primary-color, 0.08)
+  padding: 0.15rem .6rem
+  margin-right: .4rem
+  margin-bottom: .4rem
+  border-radius: $pill-border-radius
+  color: $primary-color
+  font-family: $base-font-family
+  font-size: 0.8em
+  font-weight: $font-weight-medium
+  transition: all $base-duration $smooth-timing
+  border: 1px solid rgba($primary-color, 0.1)
+
+  &:hover
+    background: rgba($primary-color, 0.15)
+    color: $primary-dark
+    border-color: rgba($primary-color, 0.2)
+
+.post-categories
+  margin-bottom: $base-spacing
+
+.meta-sep
+  color: $light-gray-color
+  margin: 0 0.15em

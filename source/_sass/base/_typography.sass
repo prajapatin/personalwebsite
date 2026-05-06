@@ -1,7 +1,8 @@
-@import url("//fonts.googleapis.com/css?family=Montserrat:300,400,700|Inter:300,400,700")
+@import url("//fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap")
 
 html
   font-size: $unit-font-size
+  scroll-behavior: smooth
 
 body
   color: $base-font-color
@@ -12,6 +13,8 @@ body
   line-height: $base-line-height
   font-feature-settings: "calt" 1
   text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
 h1,
 h2,
@@ -22,6 +25,8 @@ h6
   font-family: $heading-font-family
   line-height: $heading-line-height
   font-weight: $font-weight-bold
+  color: $dark-gray-color
+  letter-spacing: -0.02em
 
 h1,
 h2,
@@ -36,7 +41,7 @@ p
     margin-bottom: 0
 
 p
-  font-weight: $font-weight-light
+  font-weight: $font-weight-normal
 
 em
   font-style: italic
@@ -48,18 +53,19 @@ small
 a
   color: $action-color
   text-decoration: none
+  transition: color $base-duration $smooth-timing
 
   &:active,
   &:focus,
   &:hover
-    color: shade($action-color, 25%)
+    color: $primary-dark
 
 hr
-  border-bottom: $base-border
-  border-left: 0
-  border-right: 0
-  border-top: 0
-  margin: $base-spacing 0
+  border: none
+  height: 1px
+  background: $gradient-primary
+  opacity: 0.2
+  margin: $base-spacing * 1.5 0
 
 img,
 picture
@@ -68,19 +74,26 @@ picture
 
 code
   background: none
-  border-radius: 0
+  border-radius: $small-border-radius
   border: none
-  font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace
-  font-size: 0.9em
+  font-family: "JetBrains Mono", "Menlo", "Monaco", "Consolas", "Courier New", monospace
+  font-size: 0.85em
   margin: 0
-  padding: 0 5px
-  background-color: lighten($light-gray-color, 6%)
+  padding: 2px 6px
+  background-color: rgba($primary-color, 0.08)
+  color: $primary-dark
 
 pre
   -webkit-overflow-scrolling: touch
-  font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace
-  font-size: 0.9em
+  font-family: "JetBrains Mono", "Menlo", "Monaco", "Consolas", "Courier New", monospace
+  font-size: 0.85em
   margin: 0
 
   code
     line-height: 1.75em
+    color: inherit
+    background: none
+
+::selection
+  background-color: rgba($primary-color, 0.15)
+  color: $dark-gray-color

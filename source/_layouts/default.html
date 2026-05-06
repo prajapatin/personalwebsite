@@ -1,9 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   {% include head.html %}
 </head>
 <body>
   {{ content }}
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="icon icon-circle-up"></i>
+  </button>
+
+  <script>
+  // Back to top
+  (function() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  // Fade-in on scroll
+  (function() {
+    var els = document.querySelectorAll('.post, .card, .page');
+    if (!els.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          entry.target.style.opacity = '';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    els.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        // Already in viewport — show immediately
+        el.classList.add('fade-in');
+      } else {
+        el.style.opacity = '0';
+        observer.observe(el);
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

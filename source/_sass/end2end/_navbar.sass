@@ -3,7 +3,7 @@
   +position(fixed, 0)
   z-index: 99
   text-align: center
-  background-color: rgba($action-color, .9)
+  background: linear-gradient(160deg, $primary-color 0%, $primary-dark 100%)
   width: 100%
   height: 100%
 
@@ -17,10 +17,13 @@
     display: block
 
   a
-    padding: 5px 15px
-    font-size: 2rem
+    padding: 10px 15px
+    font-size: 1.8rem
     position: relative
     color: #fff
+    font-family: $heading-font-family
+    font-weight: $font-weight-medium
+    letter-spacing: -0.01em
 
     &:before,
     &:after
@@ -28,8 +31,8 @@
       display: block
       height: 2px
       width: 0
-      background-color: #fff
-      transition: width $base-duration $base-timing
+      background: $gradient-primary
+      transition: width $base-duration $smooth-timing
       +position(absolute, null 0 null null)
 
     &:before
@@ -42,7 +45,7 @@
 
     &:hover, &:focus
       color: #fff
-      opacity: .7
+      opacity: 1
       &:before,
       &:after
         width: 100%
@@ -50,6 +53,7 @@
   +media($tablet-small)
     text-align: left
     background-color: transparent
+    background: none
     position: relative
     float: right
     width: auto
@@ -64,21 +68,27 @@
       padding: 5px 15px
       color: inherit
       font-size: inherit
+      font-family: $heading-font-family
+      font-weight: $font-weight-medium
+      position: relative
 
       &:before,
       &:after
-        background-color: $light-gray-color
+        background: $gradient-primary
+        height: 2px
 
       &:hover, &:focus
-        color: inherit
+        color: $primary-color
 
 .toggle-navbar-button
   float: right
   padding: $xsmall-spacing $small-spacing
-  margin: 0
-  +position(fixed, $base-spacing $base-spacing null null)
+  margin: $base-spacing 0 0
+  position: relative
   z-index: 100
   @extend %button
+  background: $gradient-primary
+  border-radius: $base-border-radius
 
   .icon-menu
     display: block

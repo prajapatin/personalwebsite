@@ -7,9 +7,13 @@ layout: pages
   <div class="card">
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
-      <em class="post-meta">
-        <time>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time>
-      </em>
+      <div class="post-meta">
+        <time>{{ page.date | date: "%b %-d, %Y" }}</time>
+        {% if page.author %}<span class="meta-sep">&middot;</span><span>{{ page.author }}</span>{% endif %}
+        {% assign words = content | number_of_words %}
+        <span class="meta-sep">&middot;</span>
+        <span>{{ words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
     </header>
     <div class="post-categories">
       {% if post %}
@@ -35,3 +39,16 @@ layout: pages
   </div>
 
 </article>
+
+<script>
+// Reading progress bar
+(function() {
+  var bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  });
+})();
+</script>

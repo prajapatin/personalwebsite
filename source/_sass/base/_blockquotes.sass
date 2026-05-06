@@ -1,17 +1,22 @@
 blockquote
-  background: #f9f9f9
-  border-left: 10px solid #ccc
-  margin: 1.5em 10px
-  padding: 0.5em 10px
-  quotes: "“" "”" "‘" "’"
+  background: $gradient-subtle
+  border-left: 4px solid $primary-color
+  border-radius: 0 $base-border-radius $base-border-radius 0
+  margin: 1.5em 0
+  padding: 1.2em 1.5em
+  quotes: """ """ "'" "'"
+  position: relative
 
 blockquote:before
-  color: #ccc
+  color: rgba($primary-color, 0.2)
   content: open-quote
-  font-size: 4em
+  font-size: 3.5em
   line-height: 0.1em
-  margin-right: 0.25em
+  margin-right: 0.2em
   vertical-align: -0.4em
+  font-family: Georgia, serif
 
 blockquote p
   display: inline
+  color: $base-font-color
+  font-style: italic

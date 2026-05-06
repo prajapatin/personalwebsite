@@ -4,29 +4,31 @@
   margin:
     top: $base-spacing
     bottom: $base-spacing
+  position: relative
 
   &, .hll, pre, code
-    background-color: #272822 !important
+    background-color: #1e1e2e !important
     border-radius: $base-border-radius
-    border: none
+    border: 1px solid rgba(#fff, 0.06)
 
   pre
     margin: 0
     box-sizing: border-box
     width: 100%
-    padding: $small-spacing
+    padding: $base-spacing
     white-space: pre
-    line-height: 23px
+    line-height: 1.7
+    font-size: 0.85em
 
     +media($tablet-small)
-      padding: $small-spacing $base-spacing
+      padding: $base-spacing $base-spacing * 1.2
     overflow-x: auto
     margin-bottom: 0
     word-break: inherit
     word-wrap: inherit
 
     &, code
-      color: #eeffdd
+      color: #cdd6f4
 
     code
       white-space: pre

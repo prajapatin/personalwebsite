@@ -4,18 +4,26 @@ table
   margin: $small-spacing 0
   table-layout: fixed
   width: 100%
+  border-radius: $base-border-radius
+  overflow: hidden
 
 th
-  border-bottom: 1px solid shade($base-border-color, 25%)
-  font-weight: 600
-  padding: $small-spacing 0
+  border-bottom: 2px solid rgba($primary-color, 0.15)
+  font-weight: $font-weight-semibold
+  padding: $small-spacing $small-spacing / 2
   text-align: left
+  font-size: 0.9em
+  color: $dark-gray-color
+  font-family: $heading-font-family
 
 td
-  border-bottom: $base-border
-  padding: $small-spacing 0
+  border-bottom: 1px solid rgba($light-gray-color, 0.5)
+  padding: $small-spacing $small-spacing / 2
 
 tr,
 td,
 th
   vertical-align: middle
+
+tr:hover td
+  background-color: rgba($primary-color, 0.02)

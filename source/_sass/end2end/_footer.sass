@@ -1,9 +1,23 @@
 /* Site footer
 .site-footer
-  background-color: $white-color
-  border-top: 1px solid rgba($light-gray-color, .5)
-  padding: $base-spacing
+  background-color: $surface-color
+  border-top: 1px solid rgba($light-gray-color, .3)
+  padding: $base-spacing * 1.5 $base-spacing
   text-align: center
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 60px
+    height: 3px
+    background: $gradient-primary
+    border-radius: 2px
 
   p
     margin: 0
+    font-size: 0.85em
+    color: $medium-gray-color
