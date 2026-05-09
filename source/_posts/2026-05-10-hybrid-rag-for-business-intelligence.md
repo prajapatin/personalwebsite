@@ -211,6 +211,18 @@ The project includes a React 18 + TailwindCSS frontend with three panels:
 - **GraphView**: an interactive canvas-based graph visualization that renders the knowledge graph nodes and edges, letting you visually explore how entities connect.
 - **InsightsPanel**: pre-computed charts and dashboards (quarterly revenue trends, top products, department performance, regional distribution) powered by Recharts.
 
+The ChatPanel comes with a set of pre-defined prompt suggestions covering common BI questions. Users can click any suggestion to instantly fire off a query without typing, making it easy to explore the dataset and understand the kinds of questions the Hybrid RAG system can answer.
+
+![Pre-defined prompt suggestions in the ChatPanel](/images/prompt.png)
+
+The GraphView renders the full knowledge graph as an interactive, force-directed canvas. Nodes are color-coded by entity type (departments, employees, products, customers, regions) and edges display their relationship labels, giving you an immediate visual sense of how your corporate data is interconnected.
+
+![Interactive knowledge graph visualization](/images/knowledge-graph.png)
+
+The InsightsPanel surfaces key business intelligence metrics through a series of charts and dashboards. Quarterly revenue trends, top-selling products, department-wise performance comparisons, and regional distribution breakdowns are all pre-computed and rendered with Recharts, providing at-a-glance analytics alongside the conversational interface.
+
+![Business intelligence insights and dashboards](/images/insights.png)
+
 ### Conclusion
 
 By combining the structural precision of a knowledge graph with the semantic flexibility of vector search, Hybrid RAG produces answers that are both factually grounded and narratively rich. The graph path ensures the LLM sees explicit relationships, who sold what, which department produced which product, where customers are located. The vector path ensures the LLM also sees the qualitative analysis, the quarterly reports, strategic memos, and case studies that provide context no structured schema can capture.
