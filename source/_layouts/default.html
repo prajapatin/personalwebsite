@@ -48,7 +48,7 @@
     els.forEach(function(el) {
       var rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
-        // Already in viewport — show immediately
+        // Already in viewport, show immediately
         el.classList.add('fade-in');
       } else {
         el.style.opacity = '0';

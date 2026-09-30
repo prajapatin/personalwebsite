@@ -21,7 +21,7 @@ Here is a breakdown of why agent memory fails, the four core strategies to manag
 
 ### The Working Memory Bottleneck
 
-Prompt engineering is sufficient for chatbots. You provide instructions, set a persona, and manage a brief back-and-forth. Autonomous agents, however, generate a continuous stream of actions—querying databases, executing code, and scraping web pages. Every output is appended to the model's context window.
+Prompt engineering is sufficient for chatbots. You provide instructions, set a persona, and manage a brief back-and-forth. Autonomous agents, however, generate a continuous stream of actions-querying databases, executing code, and scraping web pages. Every output is appended to the model's context window.
 
 Think of the LLM as the CPU and the context window as its RAM. When the RAM maxes out, system performance collapses.
 

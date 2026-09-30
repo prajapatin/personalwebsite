@@ -141,7 +141,7 @@ vector_context = vector_retriever.format_context(vector_result)
 combined_context = f"{graph_context}\n\n{vector_context}"
 ```
 
-The graph retriever extracts meaningful search terms from the query (filtering out stop words), matches them against graph nodes, and performs a breadth-first traversal up to `max_depth` hops to pull in the surrounding neighborhood. The `ContextBuilder` then serializes this subgraph into structured text — entities grouped by type, relationships grouped by relation — that the LLM can reason over.
+The graph retriever extracts meaningful search terms from the query (filtering out stop words), matches them against graph nodes, and performs a breadth-first traversal up to `max_depth` hops to pull in the surrounding neighborhood. The `ContextBuilder` then serializes this subgraph into structured text, entities grouped by type, relationships grouped by relation that the LLM can reason over.
 
 The vector retriever embeds the raw query and retrieves the top-K most similar report chunks from ChromaDB, formatting them with source metadata and relevance scores.
 

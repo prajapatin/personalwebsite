@@ -48,7 +48,7 @@ Using the `trl` library (Supervised Fine-tuning Trainer) and `peft` (Parameter-E
 
 For the customer adapter, a training example looks like this:
 ```json
-{"instruction": "What is the status of my order?", "input": "Order #12345", "output": "Hey there! 😊 I just checked on your order #12345 and great news — it's been shipped!"}
+{"instruction": "What is the status of my order?", "input": "Order #12345", "output": "Hey there! 😊 I just checked on your order #12345 and great news, it's been shipped!"}
 ```
 
 For the partner adapter, the exact same instruction looks like this:
